@@ -708,7 +708,7 @@ else
       $(eval $m-java: $(addsuffix -java, $(filter $(JAVA_MODULES), \
       $(call FindDepsForModule,$m)))))
   # Declare dependencies between the module meta targets
-  $(foreach m, $(ALL_MODULES), $(eval $m: $(call FindDepsForModule,$m)))
+  #$(foreach m, $(ALL_MODULES), $(eval $m: $(call FindDepsForModule,$m)))
 
   # Declare dependencies between <module>-rmic to <module>-java
   $(foreach m, $(RMIC_MODULES), $(eval $m-rmic: $m-java))

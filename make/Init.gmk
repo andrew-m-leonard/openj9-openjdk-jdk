@@ -74,7 +74,7 @@ ifeq ($(HAS_SPEC),)
     ############################################################################
     # We have only global targets, or are called with -pq.
     ############################################################################
-
+    $(info "AAAA1")
     ifeq ($(wildcard $(SPEC)), )
       # If we have no SPEC provided, we will just make a "best effort" target list.
       # First try to grab any available pre-existing main-targets.gmk.
@@ -108,7 +108,7 @@ ifeq ($(HAS_SPEC),)
     # user and we need to call ourself back with a proper SPEC.
     # We have at least one non-global target, so we need to find a spec file.
     ############################################################################
-
+    $(info "AAAA2")
     # Basic checks on environment and command line.
     $(eval $(call CheckControlVariables))
     $(eval $(call CheckDeprecatedEnvironment))
@@ -128,6 +128,7 @@ ifeq ($(HAS_SPEC),)
     # by all specs, but we approximate this by an arbitrary spec from the list.
     # This will setup ALL_MAIN_TARGETS.
     $(eval $(call DefineMainTargets, FORCE, $(firstword $(SPECS))))
+    $(info "BBB $(ALL_MAIN_TARGETS)")
 
     # Separate called targets depending on type.
     INIT_TARGETS := $(filter $(ALL_INIT_TARGETS), $(CALLED_SPEC_TARGETS))

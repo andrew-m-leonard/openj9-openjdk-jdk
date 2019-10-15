@@ -273,6 +273,7 @@ ifeq ($(HAS_SPEC),)
 
     # Now include main-targets.gmk. This will define ALL_MAIN_TARGETS.
     -include $$(main_targets_file)
+    $(info "AAA: $(ALL_MAIN_TARGETS)")
   endef
 
   define PrintConfCheckFailed
