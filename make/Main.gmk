@@ -56,6 +56,11 @@ $(eval $(call IncludeCustomExtension, Main.gmk))
 # All modules for the current target platform.
 ALL_MODULES := $(call FindAllModules)
 
+PRINT-DEPS:
+	$(CAT) "$(MODULE_DEPS_MAKEFILE)"
+
+ALL_TARGETS += PRINT-DEPS
+
 ################################################################################
 ################################################################################
 #
@@ -1115,7 +1120,7 @@ jdk: exploded-image
 images: product-images
 docs: docs-image
 bundles: all-bundles
-all: all-images
+all: PRINT-DEPS all-images
 
 ALL_TARGETS += default jdk images docs bundles all
 
