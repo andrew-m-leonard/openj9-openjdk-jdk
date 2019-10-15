@@ -360,6 +360,8 @@ $(MODULE_DEPS_MAKEFILE): $(MODULE_INFOS) \
 	                          printf(" %s", $$0) } \
 	          END           { printf("\n") }' $m \
 	    ) >> $@ $(NEWLINE))
+	  $(foreach mm, $(MODULE_INFOS), \
+	      $(CAT) "$(mm)" $(NEWLINE))
 
 -include $(MODULE_DEPS_MAKEFILE)
 
